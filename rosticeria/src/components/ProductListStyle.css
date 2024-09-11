@@ -1,0 +1,183 @@
+/* Estilos para la lista */
+ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    padding: 10px 0;
+  }
+  
+
+
+  /* Estilo para las imágenes */
+  .product-image {
+    width: 200px; /* Ajusta este valor según el tamaño deseado */
+    height: auto; /* Mantiene la proporción de la imagen */
+    display: block; /* Hace que la imagen sea un bloque para manejar márgenes y centrarla */
+    margin: 10px auto; /* Centra la imagen horizontalmente y agrega un margen superior e inferior */
+  }
+  
+  /* Estilo para la imagen de fondo */
+/* Estilo para la imagen de fondo */
+.background {
+  position: relative;
+  width: calc(100% + 16px);
+  
+  height: 800px; /* O el valor que necesites */
+  background-image: url('@/img/fondo.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+
+/* Estilo para la superposición del contenido */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.overlay h1 {
+  margin: 0;
+  font-size: 3rem;
+}
+
+.overlay p {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+  
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las cartas se ajusten a múltiples líneas si es necesario */
+    justify-content: center; /* Centra las cartas horizontalmente */
+    gap: 16px; /* Espacio entre las cartas */
+    margin: 0 auto; /* Asegura que el contenedor esté centrado */
+    padding: 16px; /* Espacio alrededor del contenedor */
+  }
+
+  
+/* --------------dondeestamos----------------- */
+#dondeestamos ,
+#comidas  {
+  padding: 20px;
+  text-align: center;
+}
+
+#dondeestamos h3,
+#comidas h3 {
+  font-size: 2.5em; /* Tamaño más grande para el h3 */
+  margin-bottom: 10px; /* Margen inferior */
+}
+
+#dondeestamos h4 {
+  font-size: 1.5em; /* Tamaño más pequeño para el h4 */
+  margin-bottom: 20px;
+}
+
+.map-frame {
+  border-radius: 10px; /* Bordes redondeados */
+  border: 2px solid #000; /* Borde negro */
+}
+
+/* Contenedor responsivo para el mapa */
+.map-responsive {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Hacer que el iframe ocupe todo el espacio del contenedor */
+.map-responsive iframe {
+  border-radius: 10px; /* Bordes redondeados */
+  border: 2px solid #000; /* Borde negro */
+  width: 100%;
+}
+
+/* Tamaño fijo en navegadores de escritorio */
+@media (min-width: 1024px) {
+  .map-responsive iframe {
+    width: 600px; /* Ancho fijo en pantallas grandes */
+    height: 400px; /* Alto fijo en pantallas grandes */
+  }
+}
+
+/* Tamaño más pequeño en pantallas pequeñas */
+@media (max-width: 1023px) {
+  .map-responsive iframe {
+    width: 100%; /* Ocupa el 100% del contenedor en pantallas pequeñas */
+    height: 250px; /* Mantiene la proporción */
+  }
+}
+
+
+/* ----------------------Estilo para el footer */
+footer {
+  background-color: black; /* Fondo negro */
+  color: white; /* Texto blanco */
+  padding: 2rem 0; /* Espaciado superior e inferior */
+  width: calc(100% + 16px);
+}
+
+/* Contenedor de columnas */
+footer .container {
+  display: grid;
+  grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+  gap: 2rem; /* Espacio entre columnas */
+  justify-items: center; /* Centra los elementos dentro de cada columna */
+  max-width: 1200px; /* Ancho máximo para el contenedor */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  padding: 0 1rem; /* Espaciado interno lateral para evitar que los elementos toquen el borde */
+}
+
+/* Estilo para los títulos */
+footer h3 {
+  color: red; /* Títulos en rojo */
+  font-size: 1.125rem; /* Tamaño de fuente */
+  font-weight: 600; /* Negrita */
+  margin-bottom: 1rem; /* Espacio debajo del título */
+}
+footer h2 {
+  color: red; /* Títulos en rojo */
+  font-size: 2rem; /* Tamaño de fuente */
+  font-weight: 600; /* Negrita */
+  margin-bottom: 1rem; /* Espacio debajo del título */
+  justify-items: center;
+  text-align: center;
+}
+
+/* Estilo para los enlaces */
+footer a {
+  color: #60a5fa; /* Color azul para los enlaces */
+  text-decoration: none; /* Sin subrayado */
+}
+
+footer a:hover {
+  text-decoration: underline; /* Subrayado al pasar el ratón */
+}
+
+/* Enlaces inactivos */
+footer a.text-gray-500 {
+  color: #9ca3af; /* Gris claro para enlaces inactivos */
+}
+
+/* En pantallas medianas y grandes */
+@media (min-width: 768px) {
+  footer .container {
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+    justify-items: center; /* Centra las columnas en pantallas grandes */
+    text-align: center; /* Texto centrado en pantallas grandes */
+  }
+}

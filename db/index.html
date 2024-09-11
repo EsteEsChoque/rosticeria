@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Productos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input, select, button {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            max-width: 300px;
+        }
+        #productos {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gestión de Productos</h1>
+    <form id="productForm">
+        <select id="nombre" required>
+            <!-- Opciones se cargarán dinámicamente -->
+        </select><br>
+        <input type="number" id="precio" placeholder="Nuevo Precio" required><br>
+        <button type="submit">Actualizar Precio</button>
+    </form>
+    <div id="productos"></div>
+    <script>
+        document.getElementById('productForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            console.log('Formulario enviado');
+            const nombre = document.getElementById('nombre').value;
+            const precio = document.getElementById('precio').value;
+
+            console.log('Datos a enviar:', { nombre, precio });
+
+            fetch('http://localhost:3000/productos', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': prompt('Introduce la contraseña')
+                },
+                body: JSON.stringify({ nombre, precio })
+            }).then(response => {
+                console.log('Respuesta del servidor recibida');
+                if (!response.ok) {
+                    return response.json().then(err => { throw new Error(err.message) });
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Respuesta del servidor:', data);
+                cargarProductos();
+            })
+            .catch(error => {
+                console.error('Error al actualizar el precio:', error);
+            });
+        });
+
+        function cargarProductos() {
+            console.log('Cargando productos...');
+            fetch('http://localhost:3000/productos')
+                .then(response => {
+                    console.log('Respuesta del servidor recibida para cargar productos');
+                    if (!response.ok) {
+                        throw new Error('Error al cargar los productos');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Productos recibidos:', data);
+                    const productosDiv = document.getElementById('productos');
+                    productosDiv.innerHTML = '';
+                    const nombreSelect = document.getElementById('nombre');
+                    nombreSelect.innerHTML = '';
+                    data.forEach(producto => {
+                        productosDiv.innerHTML += `<p>${producto.nombre} - $${producto.precio}</p>`;
+                        nombreSelect.innerHTML += `<option value="${producto.nombre}">${producto.nombre}</option>`;
+                    });
+                })
+                .catch(error => {
+                    console.error('Error al cargar los productos:', error);
+                });
+        }
+
+        cargarProductos();
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<section id="inicio">
+  <div class="background">
+    <div class="overlay">
+      <h1>Rosticeria Las Nenas</h1>
+      <p>Comidas caseras</p>
+    </div>
+  </div>
+</section>
+  
+  <section id="comidas">
+    <h3>Lo que preparamos</h3>
+    <div class="cards-container">
+      <CategoryCard title="Sándwiches" :productos="sanProductos" prefix="san-" :image="san" />
+      <CategoryCard title="Empanadas" :productos="empProductos" prefix="emp-" :image="emp" />
+      <CategoryCard title="Pizzas" :productos="pizProductos" prefix="piz-" :image="piz" />
+      <CategoryCard title="Comidas" :productos="comProductos" prefix="com-" :image="com" />
+    </div>
+  </section>
+
+  <section id="dondeestamos">
+    <div class="mapa">
+      <h3>Rosticeria las Nenas</h3>
+      <h4>Colonia 4070</h4>
+      <div class="map-responsive">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1639.9423935095897!2d-58.565504861486474!3d-34.708085788280606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc607b8aa9ba5%3A0x9b9adec1d39d24a0!2sColonia%204470%2C%20B1765%20San%20Justo%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1724268266543!5m2!1ses-419!2sar" 
+          class="map-frame"
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
+  
+  
+  
+  <section id="contacto">
+
+    <footer >
+      <h2>Rosticeria las Nenas</h2>
+      <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Enlaces Rápidos -->
+        <div>
+          <h3 >Enlaces Rápidos</h3>
+          <ul>
+            <li><a href="#inicio" >Inicio</a></li>
+            <li><a href="#comidas" >Comida</a></li>
+            <li><a href="#dondeestamos" >Dónde estamos</a></li>
+            <li><a href="#" >Facebook</a></li>
+            <li><a href="#" >Instagram</a></li>
+          </ul>
+        </div>
+        
+        <!-- Estemos en Contacto -->
+        <div>
+          <h3 >Estemos en Contacto</h3>
+          <p >11-1234-5678</p>
+        </div>
+        
+        <!-- Nuestros Horarios -->
+        <div>
+          <h3 >Nuestros Horarios</h3>
+          <p>L-V: 10am – 9pm</p>
+          <p>Sáb: 9am – 9pm</p>
+          <p>Dom: 9am – 9pm</p>
+        </div>
+      </div>
+      <p><a href="https://github.com/EsteEsChoque" target="_blank">By: Choque</a></p>
+    </footer>
+  </section>

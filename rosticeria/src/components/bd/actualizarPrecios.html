@@ -1,0 +1,17 @@
+<h1>Gestión de Productos</h1>
+    <form @submit.prevent="actualizarProducto">
+      <select v-model="nombre" required>
+        <option disabled value="">Selecciona un producto</option>
+        <option v-for="producto in productos" :key="producto.id" :value="producto.nombre">
+          {{ producto.nombre }}
+        </option>
+      </select><br>
+      <input type="number" v-model="precio" placeholder="Nuevo Precio" required><br>
+      <button type="submit">Actualizar Precio</button>
+    </form>
+
+    <div id="productos">
+      <p v-for="producto in productos" :key="producto.id">
+        {{ producto.nombre }} - ${{ producto.precio }}
+      </p>
+    </div>

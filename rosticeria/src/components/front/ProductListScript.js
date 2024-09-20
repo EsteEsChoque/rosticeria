@@ -6,6 +6,7 @@ import fondo from '@/img/fondo.jpg';
 import CategoryCard from './CategoryCard.vue';
 
 export default {
+  
   name: 'Footer',
   components: {
     CategoryCard,
@@ -38,7 +39,7 @@ export default {
     // Método para cargar la lista de productos desde el servidor
     async cargarProductos() {
       try {
-        const response = await fetch('http://localhost:3000/productos'); // Hacer una solicitud GET al servidor
+        const response = await fetch('https://bd-rosticeria.onrender.com/productos'); // Hacer una solicitud GET al servidor
         if (!response.ok) {
           throw new Error('Error al cargar los productos');
         }

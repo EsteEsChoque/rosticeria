@@ -1,15 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from './views/Home.vue';
+import actualizarPrecios from './views/actualizarPrecios.vue';
 import ProductList from './views/Products.vue'; // Importar el componente ProductList
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home,
+    path: '/actualizarPrecios',
+    name: 'actualizarPrecios',
+    component: actualizarPrecios,
   },
   {
-    path: '/products',
+    path: '/',
     name: 'ProductList',
     component: ProductList,
   },

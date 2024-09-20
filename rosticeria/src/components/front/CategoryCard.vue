@@ -47,12 +47,9 @@ export default {
 <style scoped>
 .cards-container {
   display: flex;
-  flex-wrap: wrap; /* Permite que las cartas se ajusten a múltiples líneas si es necesario */
-  justify-content: center; /* Centra las cartas horizontalmente */
+  flex-wrap: wrap; 
+  justify-content: center; 
   gap: 16px; 
-  /* 
-  Espacio entre las cartas */
-  
 }
 .card {
   border: 1px solid #ddd;
@@ -60,10 +57,10 @@ export default {
   padding: 16px;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin: 16px auto; /* Centramos la carta */
+  margin: 16px auto;
   transition: transform 0.3s, box-shadow 0.3s;
-  width: 300px; /* Ancho específico */
-  height: auto; /* Alto automático */
+  width: 300px; 
+  height: auto; 
 }
 
 .card:hover {
@@ -81,7 +78,7 @@ export default {
 
 .category-image {
   width: 100%;
-  height: 150px; /* Altura ajustada para hacerla rectangular */
+  height: 150px;
   object-fit: cover;
 }
 
@@ -94,7 +91,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  background: rgba(0, 0, 0, 0.5); 
   color: white;
   font-size: 1.5em;
   opacity: 0;
@@ -106,8 +103,8 @@ export default {
 }
 
 ul {
-  list-style-type: none; /* Elimina los puntos de la lista */
-  padding: 0; /* Elimina el padding por defecto */
-  margin: 0; /* Elimina el margin por defecto */
+  list-style-type: none; 
+  padding: 0; 
+  margin: 0; 
 }
 </style>

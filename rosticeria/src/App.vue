@@ -7,7 +7,57 @@
 
 <script>
 export default {
+  mounted() {
+    this.verificarProductos();
+  },
   methods: {
+    async verificarProductos() {
+      try {
+        const response = await fetch('https://bd-rosticeria.onrender.com/productos', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error('Error al obtener productos');
+        }
+
+        const productos = await response.json();
+
+        // Si la respuesta es un array vacío, entonces ejecutamos el POST para cargar productos
+        if (productos.length === 0) {
+          this.cargarProductos();
+        } else {
+          console.log('Productos ya cargados:', productos);
+        }
+      } catch (error) {
+        console.error('Error al verificar productos:', error);
+      }
+    },
+
+    async cargarProductos() {
+      try {
+        const response = await fetch('https://bd-rosticeria.onrender.com/productos/cargar', {
+          method: 'POST',
+          headers: {
+            'Authorization': 'casa1234',
+            'Content-Type': 'application/json'
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error('Error al cargar productos');
+        }
+
+        const data = await response.json();
+        console.log('Productos cargados:', data);
+      } catch (error) {
+        console.error('Error al cargar productos:', error);
+      }
+    },
+
     seleccionar(evento) {
       const links = document.querySelectorAll('#links a');
       
